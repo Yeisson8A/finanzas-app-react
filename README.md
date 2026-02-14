@@ -11,3 +11,9 @@ Proyecto de desarrollo de una aplicación tipo Dashboard de finanzas con predicc
 
 ## **Ejecución de la aplicación**
 `npm run dev`: Este comando ejecuta la aplicación usando vite
+
+## **Ejecución de pruebas unitarias**
+`npm test`: Este comando ejecutará las diferentes pruebas unitarias que se encuentran en la carpeta `tests`
+
+## **Ejecución de cobertura de pruebas**
+`npm run test:coverage`: Este comando ejecutará la cobertura de las pruebas unitarias, la cual se podrá encontrar en la carpeta `coverage` y en el archivo `index.html`

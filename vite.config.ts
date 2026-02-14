@@ -9,5 +9,19 @@ export default defineConfig({
     globals: true,
     environment: "happy-dom",
     setupFiles: "./src/test/setup.ts",
+
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html", "json"],
+      reportsDirectory: "./coverage",
+
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: [
+        "src/main.tsx",
+        "src/vite-env.d.ts",
+        "**/*.test.*",
+        "**/__tests__/**",
+      ],
+    },
   },
 })
