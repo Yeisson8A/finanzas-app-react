@@ -1,5 +1,5 @@
 # Aplicación Dashboard de finanzas en React, TypeScript y Vite
-Proyecto de desarrollo de una aplicación tipo Dashboard de finanzas con predicción forecast con base en los datos provistos por la API Alpha Vantage, usando React, TypeScript y Vite.
+Proyecto de desarrollo de una aplicación tipo Dashboard de finanzas con predicción forecast con base en los datos provistos por la API Alpha Vantage, usando React, TypeScript y Vite; incluyendo además pruebas unitarias usando Vitest para estas funcionalidades.
 
 ## **Environment**
 - **VITE_API_URL:** Url del backend que interactúa con la API Alpha Vantage
