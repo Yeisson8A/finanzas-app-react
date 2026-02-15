@@ -26,3 +26,8 @@ export const searchSymbols = (query: string) =>
   api.get("/finance/search", {
     params: { q: query },
   });
+
+export const getKpiInsight = (symbol: string, kpi: string, value: string) =>
+  api.get("/finance/kpi-insight", {
+    params: { symbol, kpi, value },
+  });

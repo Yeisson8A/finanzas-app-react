@@ -45,7 +45,7 @@ describe("KpiGrid", () => {
 
   it("renders all KPI cards", () => {
 
-    render(<KpiGrid kpis={mockKpis} />);
+    render(<KpiGrid kpis={mockKpis} symbol="AAPL" />);
 
 
     const cards = screen.getAllByTestId("kpi-card");
@@ -57,7 +57,7 @@ describe("KpiGrid", () => {
 
   it("renders formatted values", () => {
 
-    render(<KpiGrid kpis={mockKpis} />);
+    render(<KpiGrid kpis={mockKpis} symbol="AAPL" />);
 
 
     expect(
@@ -81,7 +81,7 @@ describe("KpiGrid", () => {
 
   it("renders moving averages", () => {
 
-    render(<KpiGrid kpis={mockKpis} />);
+    render(<KpiGrid kpis={mockKpis} symbol="AAPL" />);
 
 
     expect(
@@ -97,7 +97,7 @@ describe("KpiGrid", () => {
 
   it("renders trend", () => {
 
-    render(<KpiGrid kpis={mockKpis} />);
+    render(<KpiGrid kpis={mockKpis} symbol="AAPL" />);
 
 
     expect(
@@ -110,7 +110,7 @@ describe("KpiGrid", () => {
   it("has grid container", () => {
 
     const { container } = render(
-      <KpiGrid kpis={mockKpis} />
+      <KpiGrid kpis={mockKpis} symbol="AAPL" />
     );
 
 

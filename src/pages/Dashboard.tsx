@@ -61,7 +61,7 @@ export default function Dashboard() {
         <SymbolSearch onSelect={setSymbol} defaultValue={DEFAULT_SYMBOL} />
       </div>
 
-      {kpis && <KpiGrid kpis={kpis} />}
+      {kpis && <KpiGrid kpis={kpis} symbol={symbol} />}
 
       <MarketChart data={market} />
 

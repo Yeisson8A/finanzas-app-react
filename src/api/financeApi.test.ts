@@ -49,6 +49,7 @@ import {
   getForecast,
   getKpis,
   searchSymbols,
+  getKpiInsight,
 } from "./financeApi";
 
 
@@ -182,5 +183,85 @@ describe("financeApi", () => {
 
   });
 
+  it("calls API with correct endpoint and params", async () => {
+    // Arrange
+    const mockResponse = {
+      data: {
+        kpi: "RSI",
+        insight: "Low risk",
+      },
+    };
+
+    const mockGet = getMockGet();
+
+    mockGet.mockResolvedValue(mockResponse);
+
+    const symbol = "AAPL";
+    const kpi = "RSI";
+    const value = "55";
+
+
+    // Act
+    const result = await getKpiInsight(symbol, kpi, value);
+
+
+    // Assert
+    expect(api.get).toHaveBeenCalledOnce();
+
+    expect(api.get).toHaveBeenCalledWith(
+      "/finance/kpi-insight",
+      {
+        params: {
+          symbol,
+          kpi,
+          value,
+        },
+      }
+    );
+
+    expect(result).toEqual(mockResponse);
+  });
+
+
+  it("returns API response", async () => {
+    // Arrange
+    const mockResponse = {
+      data: {
+        kpi: "Volatility",
+        insight: "High risk",
+      },
+    };
+
+    const mockGet = getMockGet();
+
+    mockGet.mockResolvedValue(mockResponse);
+
+
+    // Act
+    const response = await getKpiInsight(
+      "TSLA",
+      "Volatility",
+      "35%"
+    );
+
+
+    // Assert
+    expect(response.data.insight).toBe("High risk");
+  });
+
+
+  it("throws error when api fails", async () => {
+    // Arrange
+    const error = new Error("Network error");
+
+    const mockGet = getMockGet();
+
+    mockGet.mockRejectedValue(error);
+
+    // Act + Assert
+    await expect(
+      getKpiInsight("AAPL", "RSI", "55")
+    ).rejects.toThrow("Network error");
+  });
 });
 
